@@ -24,7 +24,16 @@ class App extends Component {
       shouldBeEqualTo(`legalEntitiesInfo[${newKey}].leaveEndAt`),
     ]);
 
+    formState.$(`legalEntitiesInfo[${newKey}].leaveBeginAt`).set('related', [
+      `legalEntitiesInfo[${newKey}].leaveEndAt`,
+    ]);
+
+    formState.$(`legalEntitiesInfo[${newKey}].leaveEndAt`).set('related', [
+      `legalEntitiesInfo[${newKey}].leaveBeginAt`,
+    ]);
+
     console.log(formState.$(`legalEntitiesInfo[${newKey}].leaveBeginAt`).validators);
+    console.log(formState.$(`legalEntitiesInfo[${newKey}].leaveBeginAt`).related);
   }
 
   render() {
